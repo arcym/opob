@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Operation Obliteration</title>
+		<script type="text/javascript" src="ipaddr.js"></script>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jrtkbi.js"></script>
+		<script type="text/javascript" src="jcanvas.js"></script>
+		<script type="text/javascript" src="jquery-ui.js"></script>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="game.room.js"></script>
+		<script type="text/javascript" src="game.player.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		
+		<div id="game">
+			<div id="pane">
+				<button>Click here to join!</button>
+				<span id="battery"></span>
+			</div>
+			<canvas id="screen"></canvas>
+		</div>
+		
+		<form id="join">
+			<input type="text"/>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>

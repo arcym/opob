@@ -1,0 +1,9 @@
+{
+  "name": "opob",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "https://registry.npmjs.org/express/-/express-4.11.1.tgz",
+    "socket.io": "^0.9.17"
+  }
+}
