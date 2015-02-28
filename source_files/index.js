@@ -1,3 +1,7 @@
 var message = require("./message.js")
 
-console.log(message)
+console.log(
+	<div>
+		{message}
+	</div>
+)
