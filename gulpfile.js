@@ -21,7 +21,7 @@ var yargs = require("yargs")
 var vinyl_buffer = require("vinyl-buffer")
 var vinyl_source = require("vinyl-source-stream")
 
-var browserify = browserify(watchify.args)
+browserify = browserify(watchify.args)
     .add("./source_files/index.js")
     .transform("reactify")
     .transform(envify({
@@ -58,7 +58,7 @@ gulp.task("watch", function() {
 
 gulp.task("watch:scripts", function() {
     gulp.start("build:scripts")
-    watchify(browserify).on("update", function() {
+    browserify = watchify(browserify).on("update", function() {
         gulp.start("build:scripts")
     })
 })
@@ -116,3 +116,20 @@ gulp.task("build:stuffs", function() {
 process.on("uncaughtException", function (error) {
     console.log(chalk.red(error))
 })
+
+//todo: configs task
+//      - gulp-json-transform
+//todo: bump task
+//      - gulp-prompt
+//      - gulp-json-transform
+//todo: deploy tasks?
+//      - gulp-s3?
+//      - gulp-gzip
+//      - git subtree
+//todo: image task
+//      - gulp-imagemin
+//      - gulp-cache
+//todo: host task
+//      - open
+//      - gulp-connect?
+//      - gulp-cache
