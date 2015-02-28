@@ -5,5 +5,9 @@
   "dependencies": {
     "express": "https://registry.npmjs.org/express/-/express-4.11.1.tgz",
     "socket.io": "^0.9.17"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "watchify": "^2.4.0"
   }
 }
