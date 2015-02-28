@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
-    "express": "https://registry.npmjs.org/express/-/express-4.11.1.tgz",
-    "socket.io": "^0.9.17"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
+    "chalk": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
     "watchify": "^2.4.0"
   }
 }
