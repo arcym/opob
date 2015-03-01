@@ -21,7 +21,10 @@ var GruntStore = Reflux.createStore({
         })
     },
     onRemoveGrunt: function(name) {
-        delete this.data[name]
+        this.firebase.child(name).remove()
+    },
+    onUpdateGrunt: function(data) {
+        this.firebase.child(data.name).set(data)
     }
 })
 

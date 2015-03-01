@@ -1,5 +1,6 @@
 var GruntActions = Reflux.createActions([
-    "AddGrunt", "RemoveGrunt"
+    "AddGrunt", "RemoveGrunt",
+    "UpdateGrunt"
 ])
 
 module.exports = GruntActions

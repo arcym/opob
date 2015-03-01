@@ -4,9 +4,8 @@ var GruntActions = require("<scripts>/actions/GruntActions")
 
 var PlayerStore = Reflux.createStore({
     data: {
-        x: 2,
-        y: 2,
-        speed: 4,
+        x: 2, y: 2,
+        speed: 3,
         type: "grunt",
         name: "andrew"
     },
@@ -17,16 +16,22 @@ var PlayerStore = Reflux.createStore({
         PlayerActions
     ],
     onAddPlayer: function(name) {
+        this.data.name = name
+        this.data.type = "grunt"
         GruntActions.AddGrunt(name)
+        this.retrigger()
     },
-    onRemovePlayer: function(name) {
-        GruntActions.RemoveGrunt(name)
+    onRemovePlayer: function() {
+        GruntActions.RemoveGrunt(this.name)
+        this.data = new Object()
+        this.retrigger()
     },
     onMovePlayerNorth: function(tick) {
         var x = Math.floor(this.data.x)
         var y = Math.floor(this.data.y - this.data.speed * tick)
         if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
             this.data.y -= this.data.speed * tick
+            GruntActions.UpdateGrunt(this.data)
             this.retrigger()
         }
     },
@@ -35,6 +40,7 @@ var PlayerStore = Reflux.createStore({
         var y = Math.floor(this.data.y + this.data.speed * tick)
         if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
             this.data.y += this.data.speed * tick
+            GruntActions.UpdateGrunt(this.data)
             this.retrigger()
         }
     },
@@ -43,6 +49,7 @@ var PlayerStore = Reflux.createStore({
         var y = Math.floor(this.data.y)
         if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
             this.data.x -= this.data.speed * tick
+            GruntActions.UpdateGrunt(this.data)
             this.retrigger()
         }
     },
@@ -51,6 +58,7 @@ var PlayerStore = Reflux.createStore({
         var y = Math.floor(this.data.y)
         if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
             this.data.x += this.data.speed * tick
+            GruntActions.UpdateGrunt(this.data)
             this.retrigger()
         }
         this.retrigger()
