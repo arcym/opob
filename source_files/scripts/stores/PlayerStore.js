@@ -2,8 +2,8 @@ var PlayerActions = require("<scripts>/actions/PlayerActions")
 
 var PlayerStore = Reflux.createStore({
     data: {
-        x: 1,
-        y: 1,
+        x: 2,
+        y: 2,
         speed: 4
     },
     getData: function() {

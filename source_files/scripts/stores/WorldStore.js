@@ -5,14 +5,6 @@ var WorldStore = Reflux.createStore({
         width: 40,
         height: 30,
         tiles: {
-            "1x1": {
-                x: 1,
-                y: 1
-            },
-            "2x1": {
-                x: 2,
-                y: 1
-            }
         }
     },
     getData: function() {
@@ -21,8 +13,22 @@ var WorldStore = Reflux.createStore({
     listenables: [
         WorldActions
     ],
-    onLoadWorld: function() {
-        console.log("load a world")
+    onLoadWorld: function(world) {
+        this.data.width = world.width
+        this.data.height = world.height
+        var tiles = world.layers[0].data
+        console.log(this.data)
+        for(var x = 0; x < world.width; x++) {
+            for(var y = 0; y < world.height; y++) {
+                var tile = tiles[y * world.width + x]
+                if(tile === 2) {
+                    this.data.tiles[x + "x" + y] = {
+                        x: x, y: y
+                    }
+                }
+            }
+        }
+        this.retrigger()
     }
 })
 

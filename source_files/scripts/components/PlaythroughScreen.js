@@ -2,9 +2,9 @@ var LoopStore = require("<scripts>/stores/LoopStore")
 var InputBindingStore = require("<scripts>/stores/InputBindingStore")
 var KeyboardInputStore = require("<scripts>/stores/KeyboardInputStore")
 var PlayerStore = require("<scripts>/stores/PlayerStore")
-
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var WorldActions = require("<scripts>/actions/WorldActions")
+var ExampleWorld = require("<scripts>/worlds/ExampleWorld")
 
 var Grunt = require("<scripts>/components/Grunt")
 var World = require("<scripts>/components/World")
@@ -14,7 +14,7 @@ var PlaythroughScreen = React.createClass({
         Reflux.connect(PlayerStore, "player")
     ],
     componentDidMount: function() {
-        WorldActions.LoadWorld("<stuff>/World.json")
+        WorldActions.LoadWorld(ExampleWorld)
         InputBindingStore.addAction("w", PlayerActions.MovePlayerNorth)
         InputBindingStore.addAction("s", PlayerActions.MovePlayerSouth)
         InputBindingStore.addAction("a", PlayerActions.MovePlayerWest)
