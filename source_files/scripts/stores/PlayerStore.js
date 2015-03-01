@@ -1,7 +1,11 @@
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 
 var PlayerStore = Reflux.createStore({
-    data: new Object(),
+    data: {
+        x: 1,
+        y: 1,
+        speed: 4
+    },
     getData: function() {
         return this.data
     },
@@ -11,17 +15,21 @@ var PlayerStore = Reflux.createStore({
     onAddPlayer: function() {
         console.log("add player")
     },
-    onMovePlayerNorth: function() {
-        console.log("move player north")
+    onMovePlayerNorth: function(tick) {
+        this.data.y -= this.data.speed * tick
+        this.retrigger()
     },
-    onMovePlayerSouth: function() {
-        console.log("move player south")
+    onMovePlayerSouth: function(tick) {
+        this.data.y += this.data.speed * tick
+        this.retrigger()
     },
-    onMovePlayerWest: function() {
-        console.log("move player west")
+    onMovePlayerWest: function(tick) {
+        this.data.x -= this.data.speed * tick
+        this.retrigger()
     },
-    onMovePlayerEast: function() {
-        console.log("move player east")
+    onMovePlayerEast: function(tick) {
+        this.data.x += this.data.speed * tick
+        this.retrigger()
     }
 })
 

@@ -5,7 +5,12 @@ var KeyboardInputStore = require("<scripts>/stores/KeyboardInputStore")
 var PlayerStore = require("<scripts>/stores/PlayerStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 
+var Grunt = require("<scripts>/components/Grunt")
+
 var PlaythroughScreen = React.createClass({
+    mixins: [
+        Reflux.connect(PlayerStore, "player")
+    ],
     componentDidMount: function() {
         InputBindingStore.addAction("w", PlayerActions.MovePlayerNorth)
         InputBindingStore.addAction("s", PlayerActions.MovePlayerSouth)
@@ -18,7 +23,7 @@ var PlaythroughScreen = React.createClass({
     },
     render: function() {
         return (
-            <div>Hello World</div>
+            <Grunt data={this.state.player}/>
         )
     }
 })
