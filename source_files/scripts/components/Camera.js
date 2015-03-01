@@ -3,7 +3,8 @@ var PlayerStore = require("<scripts>/stores/PlayerStore")
 
 var Camera = React.createClass({
     mixins: [
-        Reflux.connect(PlayerStore, "player")
+        Reflux.connect(PlayerStore, "player"),
+        Reflux.connect(WorldStore, "world")
     ],
     render: function() {
         return (
@@ -13,12 +14,10 @@ var Camera = React.createClass({
         )
     },
     renderStyles: function() {
-        //var x = ((this.state.player.x - 5) * -1)
-        //var xmax = (WorldStore.getWidth() - GameFrameStore.getWidth()) * -1
-        //x = Math.min(x, 0)
-        //x = Math.max(x, xmax)
-        var x = Math.floor(this.state.player.x / WIDTH) * -WIDTH
-        var y = Math.floor(this.state.player.y / HEIGHT) * -HEIGHT
+        var x = -this.state.player.x + (WIDTH / 2)
+        var y = -this.state.player.y + (HEIGHT / 2)
+        x = Math.min(Math.max(x, (this.state.world.width - WIDTH) * -1), 0)
+        y = Math.min(Math.max(y, (this.state.world.height - HEIGHT) * -1), 0)
         return {
             "top": y + "em",
             "left": x + "em",
