@@ -3,12 +3,7 @@ var WorldStore = require("<scripts>/stores/WorldStore")
 var GruntActions = require("<scripts>/actions/GruntActions")
 
 var PlayerStore = Reflux.createStore({
-    data: {
-        x: 2, y: 2,
-        speed: 3,
-        type: "grunt",
-        name: "andrew"
-    },
+    data: new Object(),
     getData: function() {
         return this.data
     },
@@ -16,9 +11,13 @@ var PlayerStore = Reflux.createStore({
         PlayerActions
     ],
     onAddPlayer: function(name) {
-        this.data.name = name
-        this.data.type = "grunt"
-        GruntActions.AddGrunt(name)
+        this.data = {
+            x: 2, y: 2,
+            speed: 3,
+            type: "grunt",
+            name: name
+        }
+        GruntActions.AddGrunt(this.data)
         this.retrigger()
     },
     onRemovePlayer: function() {
@@ -61,7 +60,6 @@ var PlayerStore = Reflux.createStore({
             GruntActions.UpdateGrunt(this.data)
             this.retrigger()
         }
-        this.retrigger()
     }
 })
 

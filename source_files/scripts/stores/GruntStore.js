@@ -15,13 +15,9 @@ var GruntStore = Reflux.createStore({
     listenables: [
         GruntActions
     ],
-    onAddGrunt: function(name) {
-        this.firebase.child(name).set({
-            x: 2, y: 2, speed: 3
-        })
-    },
-    onRemoveGrunt: function(name) {
-        this.firebase.child(name).remove()
+    onAddGrunt: function(data) {
+        this.firebase.child(data.name).set(data)
+        this.firebase.child(data.name).onDisconnect().remove()
     },
     onUpdateGrunt: function(data) {
         this.firebase.child(data.name).set(data)
