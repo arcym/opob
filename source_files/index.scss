@@ -3,12 +3,9 @@
 	margin: 0em;
 }
 
-div
+#game-frame
 {
-	color: blue;
-	
-	span
-	{
-		color: red;
-	}
+	background-color: red;
 }
+
+@import "./styles/components/GameFrame.scss";
