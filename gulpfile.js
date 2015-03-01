@@ -30,7 +30,10 @@ browserify = browserify(watchify.args)
     .transform(aliasify.configure({
         configDir: __dirname,
         aliases: {
-            "<source>": "./source"
+            "<source>": "./source_files",
+            "<scripts>": "./source_files/scripts",
+            "<styles>": "./source_files/styles",
+            "<stuff>": "./source_files/stuff"
         }
     }))
 

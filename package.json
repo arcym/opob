@@ -1,8 +1,19 @@
 {
   "name": "opob",
   "version": "1.0.0",
-  "main": "server.js",
-  "dependencies": {},
+  "main": "index.html",
+  "author": {
+    "name": "Andrew McPherson",
+    "email": "ehgoodenough@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ehgoodenough/opob.git"
+  },
+  "dependencies": {
+    "react": "^0.12.2",
+    "reflux": "^0.2.5"
+  },
   "devDependencies": {
     "aliasify": "^1.5.1",
     "browserify": "^9.0.3",

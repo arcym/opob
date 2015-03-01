@@ -1,7 +1,8 @@
-var message = require("./message.js")
+window.React = require("react/addons")
+window.Reflux = require("reflux")
 
-console.log(
-	<div>
-		{message}
-	</div>
-)
+window.Reflux.StoreMethods.getInitialState = function() {if(this.getData) {return this.getData()}}
+window.Reflux.StoreMethods.retrigger = function() {if(this.getData) {this.trigger(this.getData())}}
+
+var Game = require("<scripts>/components/Game")
+React.render(<Game/>, document.body)
