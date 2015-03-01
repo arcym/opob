@@ -1,11 +1,8 @@
-*
-{
-	margin: 0em;
-}
+@import "./styles/references/Colors.scss";
+@import "./styles/references/Defaults.scss";
+@import "./styles/components/GameFrame.scss";
 
 #game-frame
 {
-	background-color: red;
+	background-color: $white;
 }
-
-@import "./styles/components/GameFrame.scss";

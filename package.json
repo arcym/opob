@@ -11,6 +11,7 @@
     "url": "https://github.com/ehgoodenough/opob.git"
   },
   "dependencies": {
+    "raf": "^2.0.4",
     "react": "^0.12.2",
     "reflux": "^0.2.5"
   },
