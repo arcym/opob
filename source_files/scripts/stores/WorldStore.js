@@ -10,6 +10,9 @@ var WorldStore = Reflux.createStore({
     getData: function() {
         return this.data
     },
+    hasCollision: function(x, y) {
+        return false
+    },
     listenables: [
         WorldActions
     ],

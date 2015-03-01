@@ -1,4 +1,5 @@
 var PlayerActions = require("<scripts>/actions/PlayerActions")
+var WorldStore = require("<scripts>/stores/WorldStore")
 
 var PlayerStore = Reflux.createStore({
     data: {
@@ -16,19 +17,36 @@ var PlayerStore = Reflux.createStore({
         console.log("add a player")
     },
     onMovePlayerNorth: function(tick) {
-        this.data.y -= this.data.speed * tick
-        this.retrigger()
+        var x = Math.floor(this.data.x)
+        var y = Math.floor(this.data.y - this.data.speed * tick)
+        if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
+            this.data.y -= this.data.speed * tick
+            this.retrigger()
+        }
     },
     onMovePlayerSouth: function(tick) {
-        this.data.y += this.data.speed * tick
-        this.retrigger()
+        var x = Math.floor(this.data.x)
+        var y = Math.floor(this.data.y + this.data.speed * tick)
+        if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
+            this.data.y += this.data.speed * tick
+            this.retrigger()
+        }
     },
     onMovePlayerWest: function(tick) {
-        this.data.x -= this.data.speed * tick
-        this.retrigger()
+        var x = Math.floor(this.data.x - this.data.speed * tick)
+        var y = Math.floor(this.data.y)
+        if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
+            this.data.x -= this.data.speed * tick
+            this.retrigger()
+        }
     },
     onMovePlayerEast: function(tick) {
-        this.data.x += this.data.speed * tick
+        var x = Math.floor(this.data.x + this.data.speed * tick)
+        var y = Math.floor(this.data.y)
+        if(WorldStore.getData().tiles[x + "x" + y] == undefined) {
+            this.data.x += this.data.speed * tick
+            this.retrigger()
+        }
         this.retrigger()
     }
 })
