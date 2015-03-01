@@ -1,4 +1,4 @@
-var Grunt = React.createClass({
+var WorldTile = React.createClass({
     render: function() {
         return (
             <div style={this.renderStyles()}/>
@@ -8,12 +8,12 @@ var Grunt = React.createClass({
         return {
             "width": "1em",
             "height": "1em",
-            "top": this.props.data.y - 0.5 + "em",
-            "left": this.props.data.x - 0.5 + "em",
+            "top": this.props.data.y + "em",
+            "left": this.props.data.x + "em",
             "position": "absolute",
-            "backgroundColor": "red"
+            "backgroundColor": "#444"
         }
     }
 })
 
-module.exports = Grunt
+module.exports = WorldTile

@@ -13,7 +13,7 @@ var PlayerStore = Reflux.createStore({
         PlayerActions
     ],
     onAddPlayer: function() {
-        console.log("add player")
+        console.log("add a player")
     },
     onMovePlayerNorth: function(tick) {
         this.data.y -= this.data.speed * tick
