@@ -4,14 +4,10 @@ var WorldStore = Reflux.createStore({
     data: {
         width: 40,
         height: 30,
-        tiles: {
-        }
+        tiles: {}
     },
     getData: function() {
         return this.data
-    },
-    hasCollision: function(x, y) {
-        return false
     },
     listenables: [
         WorldActions

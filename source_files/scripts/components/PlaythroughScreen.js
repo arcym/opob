@@ -15,21 +15,35 @@ var PlaythroughScreen = React.createClass({
         Reflux.connect(PlayerStore, "player")
     ],
     componentDidMount: function() {
+        PlayerActions.AddPlayer("andrew")
         WorldActions.LoadWorld(ExampleWorld)
         InputBindingStore.addAction("w", PlayerActions.MovePlayerNorth)
         InputBindingStore.addAction("s", PlayerActions.MovePlayerSouth)
         InputBindingStore.addAction("a", PlayerActions.MovePlayerWest)
         InputBindingStore.addAction("d", PlayerActions.MovePlayerEast)
     },
+    componentsWillUnmount: function() {
+        PlayerActions.RemovePlayer("andrew")
+    },
     render: function() {
         return (
             <div id="playthrough">
                 <Camera>
                     <World/>
-                    <Grunt data={this.state.player}/>
+                    {this.renderGrunts()}
                 </Camera>
             </div>
         )
+    },
+    renderGrunts: function() {
+        var renderings = new Array()
+        for(var name in this.state.grunts) {
+            var grunt = this.state.grunts[name]
+            //renderings.push(
+            //    <Grunt key={name} data={grunt}/>
+            //)
+        }
+        return renderings
     }
 })
 
