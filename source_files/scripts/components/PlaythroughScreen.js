@@ -2,6 +2,7 @@ var LoopStore = require("<scripts>/stores/LoopStore")
 var InputBindingStore = require("<scripts>/stores/InputBindingStore")
 var KeyboardInputStore = require("<scripts>/stores/KeyboardInputStore")
 var PlayerStore = require("<scripts>/stores/PlayerStore")
+var GruntStore = require("<scripts>/stores/GruntStore")
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var WorldActions = require("<scripts>/actions/WorldActions")
 var ExampleWorld = require("<scripts>/worlds/ExampleWorld")
@@ -12,7 +13,7 @@ var Camera = require("<scripts>/components/Camera")
 
 var PlaythroughScreen = React.createClass({
     mixins: [
-        Reflux.connect(PlayerStore, "player")
+        Reflux.connect(GruntStore, "grunts")
     ],
     componentDidMount: function() {
         PlayerActions.AddPlayer("andrew")
@@ -39,9 +40,9 @@ var PlaythroughScreen = React.createClass({
         var renderings = new Array()
         for(var name in this.state.grunts) {
             var grunt = this.state.grunts[name]
-            //renderings.push(
-            //    <Grunt key={name} data={grunt}/>
-            //)
+            renderings.push(
+                <Grunt key={name} data={grunt}/>
+            )
         }
         return renderings
     }

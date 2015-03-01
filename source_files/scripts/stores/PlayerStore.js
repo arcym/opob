@@ -1,11 +1,8 @@
 var PlayerActions = require("<scripts>/actions/PlayerActions")
 var WorldStore = require("<scripts>/stores/WorldStore")
+var GruntActions = require("<scripts>/actions/GruntActions")
 
 var PlayerStore = Reflux.createStore({
-    init: function() {
-        this.firebase = new Firebase("https://opob.firebaseIO.com/players");
-        //this.firebase
-    },
     data: {
         x: 2,
         y: 2,
@@ -20,10 +17,10 @@ var PlayerStore = Reflux.createStore({
         PlayerActions
     ],
     onAddPlayer: function(name) {
-        console.log("add a player")
+        GruntActions.AddGrunt(name)
     },
     onRemovePlayer: function(name) {
-        console.log("remove a player")
+        GruntActions.RemoveGrunt(name)
     },
     onMovePlayerNorth: function(tick) {
         var x = Math.floor(this.data.x)

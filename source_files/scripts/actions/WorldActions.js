@@ -1,5 +1,5 @@
 var WorldActions = Reflux.createActions([
-	"LoadWorld"
+    "LoadWorld"
 ])
 
 module.exports = WorldActions
