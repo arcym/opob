@@ -17,7 +17,6 @@ var WorldStore = Reflux.createStore({
         this.data.width = world.width
         this.data.height = world.height
         var tiles = world.layers[0].data
-        console.log(this.data)
         for(var x = 0; x < world.width; x++) {
             for(var y = 0; y < world.height; y++) {
                 var tile = tiles[y * world.width + x]

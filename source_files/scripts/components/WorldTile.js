@@ -6,8 +6,8 @@ var WorldTile = React.createClass({
     },
     renderStyles: function() {
         return {
-            "width": "1.1em",
-            "height": "1.1em",
+            "width": "1.025em",
+            "height": "1.025em",
             "top": this.props.data.y + "em",
             "left": this.props.data.x + "em",
             "position": "absolute",

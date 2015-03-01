@@ -8,6 +8,7 @@ var ExampleWorld = require("<scripts>/worlds/ExampleWorld")
 
 var Grunt = require("<scripts>/components/Grunt")
 var World = require("<scripts>/components/World")
+var Camera = require("<scripts>/components/Camera")
 
 var PlaythroughScreen = React.createClass({
     mixins: [
@@ -23,8 +24,10 @@ var PlaythroughScreen = React.createClass({
     render: function() {
         return (
             <div id="playthrough">
-                <World/>
-                <Grunt data={this.state.player}/>
+                <Camera>
+                    <World/>
+                    <Grunt data={this.state.player}/>
+                </Camera>
             </div>
         )
     }
