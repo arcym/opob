@@ -6,10 +6,10 @@ var Grunt = React.createClass({
     },
     renderStyles: function() {
         return {
-            "width": "1em",
-            "height": "1em",
-            "top": this.props.data.y - 0.5 + "em",
-            "left": this.props.data.x - 0.5 + "em",
+            "width": this.props.data.size + "em",
+            "height": this.props.data.size + "em",
+            "top": this.props.data.y - (this.props.data.size / 2) + "em",
+            "left": this.props.data.x - (this.props.data.size / 2) + "em",
             "position": "absolute",
             "backgroundColor": "red"
         }
